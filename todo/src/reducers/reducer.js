@@ -2,7 +2,7 @@ import { ADD_TODO } from "../actions";
 
 const initialState = {
   title: "Todo List",
-  todos: [{ value: "fart", completed: false, id: 1 }]
+  todos: [{ value: "Learn Redux", completed: false, id: 1 }]
 };
 
 function reducer(state = initialState, action) {

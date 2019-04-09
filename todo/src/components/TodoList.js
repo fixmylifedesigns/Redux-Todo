@@ -2,7 +2,14 @@ import React from "react";
 
 import { addTodo } from "../actions/index";
 import { connect } from "react-redux";
+import styled from "styled-components";
 
+const Button = styled.button``;
+
+const Input = styled.input`
+border:none;
+border-bottom:2px solid;
+`;
 class TodoList extends React.Component {
   state = {
     newTodo: ""
@@ -25,17 +32,20 @@ class TodoList extends React.Component {
     return (
       <>
         <h1> Todos to do: </h1>
+
+        <Input
+          type="text"
+          value={this.state.newTodo}
+          placeholder="Type in new task here"
+          onChange={this.handleChanges}
+        />
+
+        <Button onClick={this.addTask}>Add Task</Button>
+
         <div>
           {this.props.todos &&
             this.props.todos.map((todo, index) => <h3>{todo.value}</h3>)}
         </div>
-        <input
-          type="text"
-          value={this.state.newTodo}
-          placeholder="Add"
-          onChange={this.handleChanges}
-        />
-        <button onClick={this.addTask}>Add</button>
       </>
     );
   }
