@@ -9,6 +9,9 @@ const Button = styled.button``;
 const Input = styled.input`
 border:none;
 border-bottom:2px solid;
+
+  outline: none;
+
 `;
 class TodoList extends React.Component {
   state = {
@@ -32,7 +35,7 @@ class TodoList extends React.Component {
     return (
       <>
         <h1> Todos to do: </h1>
-
+<form>
         <Input
           type="text"
           value={this.state.newTodo}
@@ -41,7 +44,7 @@ class TodoList extends React.Component {
         />
 
         <Button onClick={this.addTask}>Add Task</Button>
-
+</form>
         <div>
           {this.props.todos &&
             this.props.todos.map((todo, index) => <h3>{todo.value}</h3>)}
